@@ -3,6 +3,7 @@ numpy
 pandas 
 plotly
 requests
-tweepy
+tweepy==3.10.0
 scikit-learn
 yfinance
+tornado==6.1
