@@ -7,6 +7,7 @@ import yfinance as yf
 import plotly.graph_objects as go
 import datetime 
 import string
+import re
 
 import plotly.express as px
 from plotly.subplots import make_subplots
@@ -61,6 +62,7 @@ TWITTER_USERNAMES = [
     
 ]
 
+
 if option == 'Activist short sellers':
 
 
@@ -98,7 +100,7 @@ if option == 'Activist short sellers':
 
         for tweet in tweets: 
             if '$' in tweet.text and ((today - tweet.created_at) <= datetime.timedelta(days=time_select)):
-                words = tweet.text.split(' ')
+                words = re.split('\s|[,;:()<>!=]', tweet.text)
                 for word in words:
                     if word.startswith('$') and word.isupper() and word[-1] in string.punctuation and word[-2] not in string.punctuation:
                         symbol = word[1:-1]
