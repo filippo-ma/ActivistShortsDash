@@ -66,16 +66,16 @@ TWITTER_USERNAMES = [
 if option == 'Activist short sellers':
 
 
-    st.title('Activist shorts stocktwits')
+    st.title('Activist short stocktwits')
     st.write(' ')
-    st.write('Check the latest stocktwits from activist short sellers')
+    st.write('Check the latest activist short stocktwits')
     st.write('(API v1.1)')
     st.write(' ')
     st.write(' ')
     st.write(' ')
 
-    selected_users = st.sidebar.multiselect('short sellers selection', TWITTER_USERNAMES) 
-    time_select = st.sidebar.select_slider(label='select time interval (tweets from the past n days)', options=range(1,181), value=7)
+    selected_users = st.sidebar.multiselect('Short sellers:', TWITTER_USERNAMES) 
+    time_select = st.sidebar.select_slider(label='lookback period (days):', options=range(1,181), value=7)
     today = datetime.datetime.today()
 
     symbol_list = []
